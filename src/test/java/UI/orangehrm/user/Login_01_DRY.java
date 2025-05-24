@@ -1,4 +1,4 @@
-package orangehrm.user;
+package UI.orangehrm.user;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

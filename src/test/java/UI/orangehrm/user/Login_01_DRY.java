@@ -1,5 +1,6 @@
 package UI.orangehrm.user;
 
+import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,10 +11,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+// import cac class/interface tu package khac
+
+import javaSDET.Topic_01_Keywords;
+
 import java.time.Duration;
 
 public class Login_01_DRY {
     private WebDriver driver;
+    private Topic_01_Keywords topic01;
 
     @BeforeClass
     public void beforeClass(){

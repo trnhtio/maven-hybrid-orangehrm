@@ -1,4 +1,9 @@
 package pageObjects.admin;
 
-public class AdminPageObject {
+import core.BasePage;
+
+public class AdminPageObject extends BasePage {
+
+
+
 }

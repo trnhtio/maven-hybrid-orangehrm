@@ -1,4 +1,4 @@
-package UI.orangehrm.user;
+package com.orangehrm.user;
 
 import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.By;
@@ -12,8 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 // import cac class/interface tu package khac
-
-import javaSDET.Topic_01_Keywords;
 
 import java.time.Duration;
 

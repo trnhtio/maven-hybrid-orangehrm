@@ -1,31 +1,36 @@
-package com.orangehrm.user;
+package com.orangehrm;
 
 import core.BasePage;
+import core.BaseTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login_02_BasePage_II_Static {
+public class Login_03_Multiple_Browser extends BaseTest {
     private WebDriver driver;
     private BasePage basePage;
-    private String appURL ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    private String appUrl;
 
+    @Parameters({"appUrl", "browser"})
     @BeforeClass
-    public void beforeClass(){
-        driver = new FirefoxDriver();
+    public void beforeClass(String appUrl, String browserName){
+        this.appUrl = appUrl;
         basePage = BasePage.getInstance();
+        driver = getBrowserDriver(appUrl, browserName);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().window().maximize();
     }
     @Test
     public void Login_01_Empty(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver, appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","");
         basePage.sendkeyToElement(driver,"//input[@name='password']","");
@@ -37,7 +42,7 @@ public class Login_02_BasePage_II_Static {
 
     @Test
     public void Login_02_InvalidUserName(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver, appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","ttt@gmail.com");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123");
@@ -49,7 +54,7 @@ public class Login_02_BasePage_II_Static {
 
     @Test
     public void Login_03_InvalidPassword(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","Admin");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123@@");
@@ -60,7 +65,7 @@ public class Login_02_BasePage_II_Static {
 
     @Test
     public void Login_04_ValidAccount(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","Admin");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123");
@@ -73,7 +78,7 @@ public class Login_02_BasePage_II_Static {
 
     public boolean isAllLoadingSpinnerInvisible(){
         return basePage.waitListElementInvisible(driver,"//div[@class='oxd-loading-spinner']");
-     }
+    }
 
 
     @AfterClass

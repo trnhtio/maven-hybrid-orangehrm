@@ -1,4 +1,4 @@
-package com.orangehrm.user;
+package com.orangehrm;
 
 import core.BasePage;
 import javaSDET.Topic_01_Keywords;
@@ -17,7 +17,7 @@ import java.time.Duration;
 public class Login_02_BasePage_I_Initial {
     private WebDriver driver;
     private BasePage basePage;
-    private String appURL ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    private String appUrl ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
     @BeforeClass
     public void beforeClass(){
@@ -29,7 +29,7 @@ public class Login_02_BasePage_I_Initial {
     }
     @Test
     public void Login_01_Empty(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","");
         basePage.sendkeyToElement(driver,"//input[@name='password']","");
@@ -41,7 +41,7 @@ public class Login_02_BasePage_I_Initial {
 
     @Test
     public void Login_02_InvalidUserName(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","ttt@gmail.com");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123");
@@ -53,7 +53,7 @@ public class Login_02_BasePage_I_Initial {
 
     @Test
     public void Login_03_InvalidPassword(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","Admin");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123@@");
@@ -64,7 +64,7 @@ public class Login_02_BasePage_I_Initial {
 
     @Test
     public void Login_04_ValidAccount(){
-        basePage.openPageURL(driver,appURL);
+        basePage.openPageUrl(driver,appUrl);
 
         basePage.sendkeyToElement(driver,"//input[@name='username']","Admin");
         basePage.sendkeyToElement(driver,"//input[@name='password']","admin123");

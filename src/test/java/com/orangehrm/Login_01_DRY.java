@@ -1,4 +1,4 @@
-package com.orangehrm.user;
+package com.orangehrm;
 
 import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.By;

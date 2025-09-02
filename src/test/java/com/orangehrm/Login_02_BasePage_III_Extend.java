@@ -1,4 +1,4 @@
-package com.orangehrm.user;
+package com.orangehrm;
 
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class Login_02_BasePage_III_Extend extends BasePage{
     private WebDriver driver;
-    private String appURL ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    private String appUrl ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
     @BeforeClass
     public void beforeClass(){
@@ -23,7 +23,7 @@ public class Login_02_BasePage_III_Extend extends BasePage{
     }
     @Test
     public void Login_01_Empty(){
-        openPageURL(driver,appURL);
+        openPageUrl(driver,appUrl);
 
         sendkeyToElement(driver,"//input[@name='username']","");
         sendkeyToElement(driver,"//input[@name='password']","");
@@ -35,7 +35,7 @@ public class Login_02_BasePage_III_Extend extends BasePage{
 
     @Test
     public void Login_02_InvalidUserName(){
-        openPageURL(driver,appURL);
+        openPageUrl(driver,appUrl);
 
         sendkeyToElement(driver,"//input[@name='username']","ttt@gmail.com");
         sendkeyToElement(driver,"//input[@name='password']","admin123");
@@ -47,7 +47,7 @@ public class Login_02_BasePage_III_Extend extends BasePage{
 
     @Test
     public void Login_03_InvalidPassword(){
-        openPageURL(driver,appURL);
+        openPageUrl(driver,appUrl);
 
         sendkeyToElement(driver,"//input[@name='username']","Admin");
         sendkeyToElement(driver,"//input[@name='password']","admin123@@");
@@ -58,7 +58,7 @@ public class Login_02_BasePage_III_Extend extends BasePage{
 
     @Test
     public void Login_04_ValidAccount(){
-        openPageURL(driver,appURL);
+        openPageUrl(driver,appUrl);
 
         sendkeyToElement(driver,"//input[@name='username']","Admin");
         sendkeyToElement(driver,"//input[@name='password']","admin123");
